@@ -39,7 +39,7 @@ export class App extends Component {
     } else {
       try {
         let result = await axios.get(
-          `https://api.openweathermap.org/data/2.5/weather?q=${this.state.input}&appid=34607f1d0a8961ce8f701372a96ec2ec&units=imperial`
+          `https://api.openweathermap.org/data/2.5/weather?q=${this.state.input}&appid=${process.env.REACT_APP_WEATHER_KEY}&units=imperial`
         );
         let foundIndex = this.state.locationArray.findIndex((item) => {
           if (item.city === result.data.name && result.data.sys.country) {
